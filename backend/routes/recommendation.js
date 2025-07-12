@@ -10,8 +10,6 @@ const pool = new Pool({
   port: process.env.DB_PORT,
 });
 
-(async () => console.log(await pool.query("SELECT * FROM submission")))
-
 function getRecommendation(age, income, dependents, riskTolerance) {
   let coverage = 500000;
   let term = 20;
@@ -91,8 +89,6 @@ router.post("/", async function (req, res, next) {
   if (!["Low", "Medium", "High"].includes(riskTolerance)) {
     return res.status(400).json({ error: "Invalid risk tolerance" });
   }
-
-  console.log(await pool.query("SELECT * FROM submission"))
 
   try {
     const { recommendation, explanation } = getRecommendation(
