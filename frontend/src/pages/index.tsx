@@ -48,50 +48,55 @@ export default function Home() {
         Life Insurance Recommendation
       </h1>
       <form className="space-y-6">
-        <div className="flex flex-col space-y-2">
-          <label className="text-gray-700 font-medium">Age</label>
-          <input
-            type="number"
-            value={age}
-            onChange={(e) => setAge(e.target.value)}
-            className="border p-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Enter your age"
-          />
+        <div className="grid grid-cols-2 gap-2">
+          <div className="flex flex-col space-y-2">
+            <label className="text-gray-700 font-medium">Age</label>
+            <input
+              type="number"
+              value={age}
+              onChange={(e) => setAge(e.target.value)}
+              className="border p-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter your age"
+            />
+          </div>
+
+          <div className="flex flex-col space-y-2">
+            <label className="text-gray-700 font-medium">Income</label>
+            <input
+              type="number"
+              value={income}
+              onChange={(e) => setIncome(e.target.value)}
+              className="border p-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter your annual income"
+            />
+          </div>
         </div>
 
-        <div className="flex flex-col space-y-2">
-          <label className="text-gray-700 font-medium">Income</label>
-          <input
-            type="number"
-            value={income}
-            onChange={(e) => setIncome(e.target.value)}
-            className="border p-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Enter your annual income"
-          />
-        </div>
 
-        <div className="flex flex-col space-y-2">
-          <label className="text-gray-700 font-medium">Number of Dependents</label>
-          <input
-            type="number"
-            value={dependents}
-            onChange={(e) => setDependents(e.target.value)}
-            className="border p-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Enter number of dependents"
-          />
-        </div>
+        <div className="grid grid-cols-2 gap-2">
+          <div className="flex flex-col space-y-2">
+            <label className="text-gray-700 font-medium">Number of Dependents</label>
+            <input
+              type="number"
+              value={dependents}
+              onChange={(e) => setDependents(e.target.value)}
+              className="border p-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter number of dependents"
+            />
+          </div>
 
-        <div className="flex flex-col space-y-2">
-          <label className="text-gray-700 font-medium">Risk Tolerance</label>
-          <select
-            value={riskTolerance}
-            onChange={(e) => setRiskTolerance(e.target.value)}
-            className="border p-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <option value="Low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-          </select>
+          <div className="flex flex-col space-y-2">
+            <label className="text-gray-700 font-medium">Risk Tolerance</label>
+            <select
+              value={riskTolerance}
+              onChange={(e) => setRiskTolerance(e.target.value)}
+              className="border p-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
         </div>
 
         <button
