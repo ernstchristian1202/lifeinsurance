@@ -48,6 +48,27 @@ function getRecommendation(age, income, dependents, riskTolerance) {
   return { recommendation, explanation };
 }
 
+router.post('/create-db', async (req, res) => {
+  try {
+
+  await pool.query(`CREATE TABLE IF NOT EXISTS submissions (
+    id SERIAL PRIMARY KEY,
+    age INTEGER NOT NULL,
+    income FLOAT NOT NULL,
+    dependents INTEGER NOT NULL,
+    risk_tolerance VARCHAR(10) NOT NULL,
+    recommendation TEXT NOT NULL,
+    explanation TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );`)
+  
+    res.json({ message: "Database table created successfully" });
+  } catch (error) {
+    console.error("Error creating database table:", error);
+    res.status(500).json({ error: "Failed to create database table" });
+  }
+})
+
 router.post("/", async function (req, res, next) {
   const { age, income, dependents, riskTolerance } = req.body;
 
